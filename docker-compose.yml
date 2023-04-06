@@ -1,0 +1,49 @@
+version: "3"
+services:
+  web:
+    build: ./docker/web
+    container_name: ${PROJECT_NAME}_web
+    user: application
+    environment:
+      - WEB_DOCUMENT_ROOT=/var/www/html
+    env_file:
+      - .env
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "80:80"
+      - "443:443"
+      - "32823:22"
+    extra_hosts:
+      - "${WEB_ALIAS_DOMAIN}:127.0.0.1"
+    links:
+      - mysql
+  mysql:
+    image: mysql:8
+    container_name: ${PROJECT_NAME}_mysql
+    ports:
+      - "3306:3306"
+    env_file:
+      - .env
+    volumes:
+      - ./docker/mysql/var-lib-mysql:/var/lib/mysql
+  elasticsearch:
+    image: elasticsearch:7.17.0
+    container_name: ${PROJECT_NAME}_elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - discovery.type=single-node
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: ${PROJECT_NAME}_phpmyadmin
+    env_file:
+      - .env
+    ports:
+      - "8080:80"
+    links:
+      - mysql:db
+    depends_on:
+      - mysql
+

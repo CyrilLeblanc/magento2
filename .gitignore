@@ -1,0 +1,11 @@
+
+docker/mysql/var-lib-mysql
+generated/*
+pub/media/*
+pub/static/*
+var/*
+vendor/*
+.env
+auth.json
+
+!**/.htaccess
