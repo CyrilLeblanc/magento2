@@ -1,4 +1,4 @@
-
+app/etc/env.php
 docker/mysql/var-lib-mysql
 generated/*
 pub/media/*
