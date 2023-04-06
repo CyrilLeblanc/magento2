@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # ==============================================================================
 # this script is meant to be run from the root of the project and outside of the
@@ -10,11 +10,11 @@
 # Then run the magento setup:install command with the appropriate parameters.
 # ==============================================================================
 
-source .env;
+. ./.env;
 
 # Log a message in green.
 log() {
-    echo -e "\033[0;32m$1\033[0m";
+    echo "\033[0;32m$1\033[0m";
 }
 
 # Start docker.

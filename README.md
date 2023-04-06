@@ -6,7 +6,6 @@ This is a dockerized version of Magento 2.4.6
 
 ## Requirements
 
-- [Bash](https://www.gnu.org/software/bash/)
 - [Docker](https://docs.docker.com/get-docker/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
