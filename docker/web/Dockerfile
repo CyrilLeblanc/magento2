@@ -5,3 +5,5 @@ COPY ./.bashrc /home/application/.bashrc
 
 # update Composer to 2.2
 RUN composer self-update --2.2
+
+WORKDIR /var/www/html
